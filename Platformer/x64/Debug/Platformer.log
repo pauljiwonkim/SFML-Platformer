@@ -1,0 +1,11 @@
+﻿  main.cpp
+  Player.cpp
+  ShapeManager.cpp
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(8,24): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(8,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(18,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(18,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(24,28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\Platformer\Platformer\ShapeManager.cpp(24,25): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  Generating Code...
+  Platformer.vcxproj -> E:\Code Projects\Personal Projects\Platformer\Platformer\x64\Debug\Platformer.exe
