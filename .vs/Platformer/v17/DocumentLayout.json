@@ -7,19 +7,19 @@
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\Platformer\\Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\Platformer\\Platformer\\ShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\ShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\Platformer\\Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\Platformer\\Platformer\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -42,8 +42,7 @@
               "RelativeToolTip": "Platformer\\ShapeManager.cpp",
               "ViewState": "AQIAABEAAAAAAAAAAAAkwDQAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-17T23:14:01.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:14:01.867Z"
             },
             {
               "$type": "Document",
@@ -55,8 +54,7 @@
               "RelativeToolTip": "Platformer\\ShapeManager.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAACAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-17T23:13:49.876Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:13:49.876Z"
             },
             {
               "$type": "Document",
@@ -68,8 +66,7 @@
               "RelativeToolTip": "Platformer\\Player.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-17T23:13:14.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:13:14.782Z"
             },
             {
               "$type": "Document",
@@ -79,7 +76,7 @@
               "RelativeDocumentMoniker": "Platformer\\Player.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.cpp",
               "RelativeToolTip": "Platformer\\Player.cpp",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAEAAAAOAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-17T23:13:26.408Z",
               "EditorCaption": ""
@@ -94,8 +91,7 @@
               "RelativeToolTip": "Platformer\\main.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAtAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-17T23:10:42.944Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:10:42.944Z"
             }
           ]
         }
