@@ -1,7 +1,40 @@
-﻿  Player.cpp
+﻿  main.cpp
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\Player.h(33,61): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  (compiling source file 'main.cpp')
+  
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,55): warning C4244:         with
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,55): warning C4244:         [
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,55): warning C4244:             T=unsigned int
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,55): warning C4244:         ]
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,35): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,35): warning C4244:         with
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,35): warning C4244:         [
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,35): warning C4244:             T=unsigned int
+E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(29,35): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244: 'initializing': conversion from '_Ty' to '_Ty2', possible loss of data
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         with
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:             _Ty=float
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         and
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         [
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:             _Ty2=int
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54): warning C4244:         ]
+  (compiling source file 'main.cpp')
+      C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\utility(263,54):
+      the template instantiation context (the oldest one first) is
+          E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\Player.h(48,70):
+          see reference to function template instantiation 'std::pair<const std::string,int>::pair<const char(&)[6],float,0>(_Other1,_Other2 &&) noexcept(false)' being compiled
+          with
+          [
+              _Other1=const char (&)[6],
+              _Other2=float
+          ]
+  
   Generating code
-  2 of 141 functions ( 1.4%) were compiled, the rest were copied from previous compilation.
+  1 of 422 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  Platformer.vcxproj -> E:\Code Projects\Personal Projects\Platformer\Platformer\x64\Release\Platformer.exe
+  Platformer.vcxproj -> E:\Code Projects\Personal Projects\Platformer\platformer\x64\Release\Platformer.exe

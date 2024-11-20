@@ -3,7 +3,7 @@
 // Constructor for the Player class
 Player::Player(float x, float y)
     : currentFrame(0), frameWidth(32), frameHeight(32),
-    speed(5.0f), yVelocity(0.0f), xVelocity(0.0f), gravity(0.5f), jumpStrength(-15.0f), isGrounded(false), isJumped(false), left(false), right(false), up(false), down(false), health(10) {
+    speed(8.0f), yVelocity(0.0f), xVelocity(0.0f), gravity(0.7f), jumpStrength(-15.0f), isGrounded(false), isJumped(false), left(false), right(false), up(false), down(false), isDead(false), maxJumps(2), jumpCount(0) {
 
     // Load the idle texture (when the player is not moving)
     if (!idle_texture.loadFromFile("E:/Code Projects/Personal Projects/Platformer/platformer/src/sprites/player_idle.png")) {
@@ -22,7 +22,7 @@ Player::Player(float x, float y)
     sprite.setScale(2.0f, 2.0f);
 
     // Initial position of the player (positioning player at a specific point on the screen)
-    sprite.setPosition(x, y);
+    sprite.setPosition(300, 880);
 
     // Initialize previous position
     previousPosition = sprite.getPosition();
@@ -31,6 +31,12 @@ Player::Player(float x, float y)
     animationClock.restart();
 
     std::cout << "Player initialized at position: " << sprite.getPosition().x << ", " << sprite.getPosition().y << std::endl;
+
+    // Initialize abilities
+    abilities["jumps"] = 2;         // Set default number of jumps
+    maxJumps = abilities["jumps"];  // Dynamically adjust maxJumps based on abilities
+    abilities["speed"] = 8.0f;
+    speed = abilities["speed"];
 }
 
 // Handle key press/release events for player movement
@@ -42,10 +48,7 @@ void Player::processEvents(sf::Keyboard::Key key, bool checkPressed) {
         if (key == sf::Keyboard::D) { right = true; }
 
         if (key == sf::Keyboard::Space) {
-            if (isGrounded) {
-                jump();
-            }
-            else if (isJumped) {
+            if (isGrounded || jumpCount < maxJumps) {
                 jump();
             }
         }
@@ -59,11 +62,12 @@ void Player::processEvents(sf::Keyboard::Key key, bool checkPressed) {
 }
 //----------------------------- UPDATES ---------------------------------------Updates player state (movement, gravity, jumping)
 
-void Player::update() {
+void Player::update(std::vector<sf::RectangleShape>& platforms) {
+
     isGrounded = false;  // Assume player is not grounded initially
 
     sf::Vector2f movement(0.0f, 0.0f);
-
+    float speed = abilities["speed"]; 
     // Horizontal movement (left and right)
     if (left && sprite.getPosition().x > 0) {  // Prevent movement past the left edge (x > 0)
         xVelocity = -speed;
@@ -87,7 +91,7 @@ void Player::update() {
 
     // Move the sprite based on calculated movement (horizontal + vertical)
     sprite.move(sf::Vector2f(xVelocity, yVelocity));
-
+    handleCollisions(platforms);
     // Handle walking animation if the player is moving
     if (left || right) {
         if (animationClock.getElapsedTime().asSeconds() > 0.1f) {
@@ -115,6 +119,17 @@ void Player::update() {
     // Update previous position for velocity calculation
     previousPosition = sprite.getPosition();
 
+    //Check if player goes below y Limit
+    belowYLimit();
+
+    //Respawn
+    if (isDead) {
+        // Check if 3 seconds have passed since the player died
+        if (deathClock.getElapsedTime().asSeconds() >= respawnTimer) {
+            respawn();  // Call respawn after 3 seconds
+        }
+        return;  // Skip the rest of the update logic while dead
+    }
 }
 
 // Update the walking animation texture based on the current frame
@@ -126,43 +141,42 @@ void Player::updateTexture() {
 
 // General collision handler
 void Player::handleCollisions(const std::vector<sf::RectangleShape>& platforms) {
-
-    // Iterate over platforms
+    // Loop through each platform to check for collisions
     for (const auto& platform : platforms) {
-        // Vertical Collision
-        if (getBounds().intersects(platform.getGlobalBounds())) {
-            std::cout << "Vertical collision" << std::endl;
+        sf::FloatRect platformBounds = platform.getGlobalBounds();
+        sf::FloatRect playerBounds = getBounds();
 
-            // Stop vertical movement (colliding from above)
-            if (yVelocity > 0) {  // Falling down or moving downward
-                sprite.setPosition(sprite.getPosition().x, platform.getPosition().y - sprite.getGlobalBounds().height);
-                yVelocity = 0;  // Stop downward movement after landing
-                isGrounded = true;  // The player is now grounded
-                isJumped = false; // Reset double jump
+        // Check if the player is colliding with the platform
+        if (playerBounds.intersects(platformBounds)) {
+            // Determine the side of collision
+
+            // Bottom collision (player landing on top of a platform)
+            if (previousPosition.y + playerBounds.height <= platformBounds.top) {
+                sprite.setPosition(sprite.getPosition().x, platformBounds.top - playerBounds.height);
+                isGrounded = true;
+                yVelocity = 0;
+                jumpCount = 0;
+                std::cout << "Bottom Collided" << std::endl;
             }
-            // Stop vertical movement (colliding from below)
-            else if (yVelocity < 0) {  // Moving upward (jumping)
-                sprite.setPosition(sprite.getPosition().x, platform.getPosition().y + platform.getSize().y);
-                yVelocity = 0;  // Stop upward movement when hitting the platform from below
+            // Top collision (player hitting the underside of a platform)
+            else if (previousPosition.y >= platformBounds.top + platformBounds.height) {
+                sprite.setPosition(sprite.getPosition().x, platformBounds.top + platformBounds.height);
+                yVelocity = 0;  // Stop upward movement
+                std::cout << "Top Collided" << std::endl;
+            }
+            // Left collision
+            else if (previousPosition.x + playerBounds.width <= platformBounds.left) {
+                sprite.setPosition(platformBounds.left - playerBounds.width, sprite.getPosition().y);
+                xVelocity = 0;
+                std::cout << "Left Collided" << std::endl;
+            }
+            // Right collision
+            else if (previousPosition.x >= platformBounds.left + platformBounds.width) {
+                sprite.setPosition(platformBounds.left + platformBounds.width, sprite.getPosition().y);
+                xVelocity = 0;
+                std::cout << "Right Collided" << std::endl;
             }
         }
-
-        // Horizontal Collision
-        if (getBounds().intersects(platform.getGlobalBounds())) {
-            std::cout << "Horizontal collision" << std::endl;
-            // Stop horizontal movement (colliding from the right)
-            if (xVelocity > 0) {  // Moving right
-                sprite.setPosition(platform.getPosition().x - sprite.getGlobalBounds().width, sprite.getPosition().y);
-                xVelocity = 0;  // Stop rightward movement after collision
-            }
-            // Stop horizontal movement (colliding from the left)
-            else if (xVelocity < 0) {  // Moving left
-                sprite.setPosition(platform.getPosition().x + platform.getSize().x, sprite.getPosition().y);
-                xVelocity = 0;  // Stop leftward movement after collision
-            }
-        }
-
-
     }
 }
 
@@ -176,46 +190,57 @@ void Player::drawTo(sf::RenderWindow& window) {
 // Get the bounding box of the player (used for collision detection)
 sf::FloatRect Player::getBounds() const {
     sf::FloatRect bounds = sprite.getGlobalBounds();
-
-    // Define a custom width adjustment (e.g., 10 pixels on each side)
-    float widthAdjustment = 10.0f;
-
-    // Offset the bounds by reducing width and adjusting position
-    bounds.left += widthAdjustment;
-    bounds.width -= 2 * widthAdjustment;  // Subtract from both sides
-
     return bounds;
-}
+} 
 
 // Get the current velocity of the player (used for physics calculations)
 sf::Vector2f Player::getVelocity() const {
     return sprite.getPosition() - previousPosition;
 }
 
+float Player::getPlayerSpeed() const {
+    if (abilities.find("speed") != abilities.end()) {
+        return abilities.at("speed");                   // Return the value of speed from abilities hashmap
+    }
+    return 8.0f;  // Default speed if not found
+}
+
 // Jump action
 void Player::jump() {
-    if (isGrounded) {
+    if (isGrounded || jumpCount < maxJumps) {
         yVelocity = jumpStrength;
-        isGrounded = false;  // Player is no longer on the ground
-        isJumped = true;     // Allow for a potential double jump
-        //       if (health > 0) {   // Ensure health doesn't go negative
-        //           health--;        // Decrease health by 1 on each jump
-        //           std::cout << "Health: " << health << std::endl;  // Output health to console
-        //       }
+        isGrounded = false;  // Player is no longer grounded
+        isJumped = true;     // Enable jumping state
+        jumpCount++;         // Increment the jump count
+        
+        std::cout << "Jumped! Current jump count: " << jumpCount << std::endl;
     }
-    else if (isJumped) {
-        yVelocity = jumpStrength;
-        isJumped = false;    // Disable double jump after use
-        //       if (health > 0) {   // Ensure health doesn't go negative
-        //           health--;        // Decrease health by 1 on each jump
-        //           std::cout << "Health: " << health << std::endl;  // Output health to console
-        //       }
-    }
+
 }
 
+void Player::belowYLimit() {
+    if (sprite.getPosition().y > yLimit) {
+        death();
+    }
+}  
+
+bool Player::isPlayerDead() const {
+    return isDead;
+}
 void Player::death() {
-    if (health == 0) {
-
-        std::cout << "Game over" << std::endl;
+    if (!isDead) {
+        std::cout << "Player has died" << std::endl;
+        isDead = true;
+        deathClock.restart();
     }
+ }
+
+void Player::respawn() {
+    sprite.setPosition(300, 800);
+    isDead = false;
+    isGrounded = false;
+    yVelocity = 0;
+    jumpCount = 0;
+    std::cout << "Player Respawned" << std::endl;
 }
+
