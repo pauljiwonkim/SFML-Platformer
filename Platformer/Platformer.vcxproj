@@ -151,12 +151,14 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="ShapeManager.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="Upgrades.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="ShapeManager.h" />
+    <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="Upgrades.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

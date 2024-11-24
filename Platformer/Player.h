@@ -18,65 +18,76 @@ public:
     void drawTo(sf::RenderWindow& window);
 
     // **** Accessors (Getters) ****
-    sf::Vector2f getPosition() const { return sprite.getPosition(); }           // returns player's current position
-    sf::FloatRect getBounds() const;                                            // Gets player's entire physical bounds 
-    sf::FloatRect getSpriteBounds() const { return sprite.getGlobalBounds(); }  // Gets sprite's visual bounds (for rendering-related calcs)
-    sf::Vector2f getVelocity() const;                                           // Gets player's current velocity
-    bool isPlayerDead() const;                                                  // Check if Player died
-    int getMaxJumps() const { return maxJumps; }                                // Gets player's maximum jumps
-    int getJumpCount() const { return jumpCount; }                              // Gets player's jump count
-    float getPlayerSpeed() const;                                               // Gets player's current speed
+    sf::Vector2f getPosition() const { return sprite.getPosition(); }
+    sf::FloatRect getBounds() const;
+    sf::FloatRect getSpriteBounds() const { return sprite.getGlobalBounds(); }
+    sf::Vector2f getVelocity() const;
+    bool isPlayerDead() const;
+    int getMaxJumps() const { return maxJumps; }
+    int getJumpCount() const { return jumpCount; }
+    float getJumpStrength() const { return jumpStrength;  }
+    float getPlayerSpeed() const;
+    float getGravity() const { return gravity; }
 
-    // Mutators (Setters)
-    void setMaxJumps(int amount) { maxJumps = amount; }           // Not currently needed but possibly for future use
+    // **** Mutators (Setters) ****
+    void setMaxJumps(int amount) { maxJumps = amount; }
     void setJumpCount(int count) { jumpCount = count; }
-    void setPlayerSpeed(float speed) { abilities["speed"] = speed; } // Update speed in abilities
+    void setJumpStrength(float jumpStr) { jumpStrength = jumpStr;  }
+    void setPlayerSpeed(float speed) { abilities["speed"] = speed; }
+    void setGravity(float newGravity) { gravity = newGravity; }
 
-    // **** Collision and limits****
-    void handleCollisions(const std::vector<sf::RectangleShape>& platforms);   // Collision detection
-    void belowYLimit();                                                        // Check if Player falls below y limit 
+    // **** Movement and Abilities ****
+    void jump();
+    void dash();
+    void handleCollisions(const std::vector<sf::RectangleShape>& platforms);
+    void belowYLimit();
 
-    // **** Jump properties ****
-    float jumpStrength;         // Jump strength
-    int maxJumps ;              // Player's max amount of jumps. To prevent jumping endlessly
-    int jumpCount;              // Tracks consecutive jumps
-    bool isGrounded;            // To check if the player is grounded
-    bool isJumped;              // To check if the player jumped (for double jump)
-    void jump();                // Handle jump
-
-    // **** Player Abilities ****
-    std::unordered_map<std::string, int> abilities = { {"jumps", 2}, {"speed", 8.0f} }; // Use a hash map to store player abilities. Default two jumps
-
+    // Abilities
+    std::unordered_map<std::string, float> abilities = { {"jumps", 2.0f}, {"speed", 8.0f} };
 
 private:
-
-    // **** Sprite ****
-    sf::Texture idle_texture;    // Texture for idle
-    sf::Texture move_texture;    // Texture for movement (walking)
-    sf::Sprite sprite;           // To display the player sprite
-    sf::Clock animationClock;    // For animation timing
+    // **** Sprite and Animation ****
+    sf::Texture idleTexture;
+    sf::Texture moveTexture;
+    sf::Sprite sprite;
+    sf::Clock animationClock;
     int currentFrame;
     int frameWidth, frameHeight;
-    const int totalFrames = 6;   // Number of frames in sprite sheet
-    void updateTexture();       // Update the texture for walking animation
+    const int totalFrames = 6;
+    void updateTexture();
 
     // **** Movement ****
-    bool up, down, left, right;
-    float speed;
-    float yVelocity;            // The current vertical velocity
-    float xVelocity;            // The current horizontal velocity
-    float gravity;              // Gravity strength
+    bool up = false, down = false, left = false, right = false;
+    float yVelocity = 0.0f;
+    float xVelocity = 0.0f;
+    float gravity = 9.8f;
+    sf::Vector2f dashVelocity;
+    float speed = 8.0f;
+    float dashSpeed = 20.0f;
+    bool canDash = true;
+    bool isDashing = false;
+    sf::Vector2f previousPosition;
+    float yLimit = 3500.f;
 
-    sf::Vector2f previousPosition;  // To calculate velocity for smooth movement
-    float yLimit = 1000.f;
+    // Jump Properties
+    int maxJumps = 2;
+    int jumpCount = 0;
+    bool isGrounded = false;
+    bool isJumped = false;
+    float jumpStrength;
 
-    //States
+    // Wall Cling
+    bool isClinging = false;
+    sf::Clock wallClingClock;
+    const float maxClingTime = 5.0f;
+    bool clingFallStarted = false;
+
+    // State
     bool isDead;
     void death();
     void respawn();
     sf::Clock deathClock;
-    const float respawnTimer = 1.0;
-
-
+    const float respawnTimer = 1.0f;
 };
+
 #endif // PLAYER_H

@@ -18,6 +18,9 @@ public:
     // Set the camera boundaries
     void setBounds(float left, float top, float right, float bottom);
 
+    // Get the camera's current position (center of the view)
+    sf::Vector2f getCameraPosition() const { return view.getCenter(); }
+
 private:
     sf::View view;
     sf::Vector2f boundsMin;
