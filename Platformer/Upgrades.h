@@ -18,7 +18,7 @@ enum class EffectType {
 };
 
 // Class definition for Upgrades
-class Upgrades {
+class Upgrades {                                            
 public:
     // Static map storing all available upgrades
     static std::unordered_map<std::string, Upgrades> upgrade_map;
@@ -34,6 +34,8 @@ public:
         upgradeColor(sf::Color::Yellow),
         collected(false),
         upgradeActive(false),
+        isRespawning(false),
+        respawnDelay(10.0f),
         upgradeEffectType(EffectType::None)
     {
         upgradeShape.setSize(upgradeSize);
@@ -45,6 +47,7 @@ public:
     Upgrades(const std::string& name, sf::RectangleShape shape, const sf::Vector2f& size,
         int level, float duration, const sf::Vector2f& position, const sf::Color& color,
         bool collected, bool upgradeActive, EffectType effectType);
+
        
 
     // Method to apply the upgrade's effect to the player
@@ -60,6 +63,9 @@ public:
 
     // Static method to initialize all upgrades
     static void initializeUpgrades();
+
+    // Static method to reset all upgrades
+    static void resetPlayerUpgrades(Player& player);
 
     // **** Accessors (Getters) ****
 
@@ -95,8 +101,13 @@ private:
     sf::Color upgradeColor;             // Color of the upgrade
     bool collected;                     // Whether the upgrade has been collected
     EffectType upgradeEffectType;       // The effect type of the upgrade
-    bool upgradeActive;               // Whether the upgrade effect is active
+    bool upgradeActive;                 // Whether the upgrade effect is active
     sf::Clock durationTimer;            // Timer to track the upgrade effect duration
+    bool isRespawning;                  // Whether the upgrade is currently in respawn mode
+    float respawnDelay;                 // Delay in seconds for respawn
+    sf::Clock respawnTimer;             // Timer to track the upgrade respawn delay
+
+    void endUpgradeEffect(Player& player);
 };
 
 // End of header guard

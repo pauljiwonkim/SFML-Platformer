@@ -1,22 +1,7 @@
-﻿  main.cpp
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,55): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,55): warning C4244:         with
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,55): warning C4244:         [
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,55): warning C4244:             T=unsigned int
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,55): warning C4244:         ]
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,35): warning C4244: 'argument': conversion from 'T' to 'float', possible loss of data
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,35): warning C4244:         with
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,35): warning C4244:         [
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,35): warning C4244:             T=unsigned int
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(39,35): warning C4244:         ]
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(41,22): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(41,22): warning C4244:         with
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(41,22): warning C4244:         [
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(41,22): warning C4244:             T=unsigned int
-E:\Code Projects\Personal Projects\Platformer\platformer\Platformer\main.cpp(41,22): warning C4244:         ]
+﻿  LevelManager.cpp
   Generating code
-  1 of 649 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  4 of 889 functions ( 0.4%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    2 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   Platformer.vcxproj -> E:\Code Projects\Personal Projects\Platformer\platformer\x64\Release\Platformer.exe

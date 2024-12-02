@@ -17,6 +17,8 @@ Upgrades::Upgrades(const std::string& name, sf::RectangleShape shape, const sf::
     upgradeColor(color),
     collected(false),
     upgradeActive(false),
+    isRespawning(false),    
+    respawnDelay(10.0f),
     upgradeEffectType(effectType)
 {
     upgradeShape.setSize(upgradeSize);
@@ -28,7 +30,6 @@ Upgrades::Upgrades(const std::string& name, sf::RectangleShape shape, const sf::
 void Upgrades::applyUpgradeEffect(Player& player) {
     if (!collected && upgradeShape.getGlobalBounds().intersects(player.getSpriteBounds())) {
         collected = true;  // Mark as collected
-
 
         // ** DEBUG **
             // Print abilities before upgrade
@@ -52,11 +53,8 @@ void Upgrades::applyUpgradeEffect(Player& player) {
         }
 
         upgradeShape.setFillColor(sf::Color::Transparent); // Hide the upgrade once collected
-
-
     }
 }
-
 
 
 // ** UPGRADES **
@@ -171,9 +169,44 @@ void Upgrades::updateEffectDuration(Player& player) {
     }
 }
 
+// Helper method to end the upgrade effect
+void Upgrades::endUpgradeEffect(Player& player) {
+    switch (upgradeEffectType) {
+    case EffectType::ExtraJump:
+        player.abilities["jumps"] -= (upgradeLevel == 1 ? 1 : (upgradeLevel == 3 ? 2 : 0));
+        player.setMaxJumps(player.abilities["jumps"]);
+
+        if (upgradeLevel == 2) {
+            player.setJumpStrength(player.getJumpStrength() + 5.0f);
+            std::cout << "Jump Strength upgrade expired.\n";
+        }
+        std::cout << "Extra Jump Upgrade expired.\n";
+        break;
+    case EffectType::SpeedBoost:
+        player.setPlayerSpeed(player.getPlayerSpeed() - (upgradeLevel == 1 ? 2 : upgradeLevel == 2 ? 5 : 10));
+        std::cout << "Speed Boost Upgrade expired.\n";
+        break;
+    }
+}
+
+// Method to reset Player's upgrades
+void Upgrades::resetPlayerUpgrades(Player& player) {
+    // Reset all upgrades for the player
+    player.abilities["jumps"] = 2;   // Reset jumps to default
+    player.abilities["speed"] = 8.0f; // Reset speed to default
+    player.setMaxJumps(player.abilities["jumps"]);
+    player.setPlayerSpeed(player.abilities["speed"]);
+
+    // Print debug information to confirm reset
+    std::cout << "Player upgrades reset after death. Jumps = " << player.abilities["jumps"]
+        << ", Speed = " << player.abilities["speed"] << "\n";
+}
+
+
 // Method to draw the upgrade on the screen
 void Upgrades::draw(sf::RenderWindow& window) {
     if (!collected) {
         window.draw(upgradeShape);  // Draw the upgrade if not collected
     }
 }
+

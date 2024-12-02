@@ -6,6 +6,8 @@
 #include <vector>
 #include <unordered_map>
 #include "Upgrades.h"
+#include "LevelManager.h"
+#include "ShapeManager.h"
 
 class Player {
 public:
@@ -14,7 +16,7 @@ public:
 
     // **** Core Player Functionalities ****
     void processEvents(sf::Keyboard::Key key, bool checkPressed);
-    void update(std::vector<sf::RectangleShape>& platforms);
+    void update(const std::unordered_map<std::string, LevelManager::LevelData>& levelMap);
     void drawTo(sf::RenderWindow& window);
 
     // **** Accessors (Getters) ****
@@ -39,7 +41,7 @@ public:
     // **** Movement and Abilities ****
     void jump();
     void dash();
-    void handleCollisions(const std::vector<sf::RectangleShape>& platforms);
+    void handleCollisions(const std::unordered_map<std::string, LevelManager::LevelData>& levelMap);
     void belowYLimit();
 
     // Abilities
@@ -56,6 +58,7 @@ private:
     const int totalFrames = 6;
     void updateTexture();
 
+
     // **** Movement ****
     bool up = false, down = false, left = false, right = false;
     float yVelocity = 0.0f;
@@ -67,7 +70,7 @@ private:
     bool canDash = true;
     bool isDashing = false;
     sf::Vector2f previousPosition;
-    float yLimit = 3500.f;
+    float yLimit = 10000.f;
 
     // Jump Properties
     int maxJumps = 2;

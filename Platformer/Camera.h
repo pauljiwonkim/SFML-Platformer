@@ -20,6 +20,7 @@ public:
 
     // Get the camera's current position (center of the view)
     sf::Vector2f getCameraPosition() const { return view.getCenter(); }
+    sf::View getView() const;
 
 private:
     sf::View view;

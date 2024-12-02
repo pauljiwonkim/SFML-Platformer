@@ -36,6 +36,9 @@ void Camera::update(const Player& player) {
     }
 }
 
+sf::View Camera::getView() const {
+    return view;
+}
 
 void Camera::apply(sf::RenderWindow& window) {
     // Set the window's view to the camera's view

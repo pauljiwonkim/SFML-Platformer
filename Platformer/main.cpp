@@ -6,6 +6,9 @@
 #include "Camera.h"
 #include "Upgrades.h"
 #include "TitleScreen.h"
+#include "ShapeManager.h"
+#include "LevelManager.h"
+
 
 int main()
 {
@@ -18,7 +21,7 @@ int main()
     // Initialize the title screen
     TitleScreen::InitializeTexts(window);  // Call to initialize texts and buttons (title and play button)
 
-    // Temporary background
+    // Temporary background using RectangleShape instead of Sprite
     sf::Texture backgroundTexture;
     bool backgroundOn = true;  // Flag to control background display
     if (!backgroundTexture.loadFromFile("E:/Code Projects/Personal Projects/Platformer/platformer/src/sprites/background.png")) {
@@ -28,8 +31,10 @@ int main()
     else {
         std::cout << "Background image loaded successfully!" << std::endl;
     }
-    // Create a sprite for the background
-    sf::Sprite backgroundSprite(backgroundTexture);
+
+    // Create a rectangle for the background, filling the entire window and applying the texture
+    sf::RectangleShape backgroundRect(sf::Vector2f(window.getSize().x, window.getSize().y));
+    backgroundRect.setTexture(&backgroundTexture);
 
     // Load font before initializing texts
     TitleScreen::loadFont("E:/Code Projects/Personal Projects/Platformer/platformer/src/font/Roboto-Regular.ttf");
@@ -40,29 +45,15 @@ int main()
     camera.setBounds(0.f, 0.f, 4000.f, 4000.f);  // Adjusted bounds for 1920x1080
     float viewHeight = window.getSize().y;
 
-    // Scaling factors for 1920x1080 (compared to the original 1600x1050)
-    float scaleX = 1920.f / 1600.f;
-    float scaleY = 1080.f / 1050.f;
-
-    // Adjust platforms and upgrades for new window size
-    sf::RectangleShape ground_platform(sf::Vector2f(1600.f * scaleX, 400.f * scaleY));
-    ground_platform.setFillColor(sf::Color::Blue);
-    ground_platform.setPosition(0.f, 3100.f * scaleY);
-
-    sf::RectangleShape platform1(sf::Vector2f(600.f * scaleX, 30.f * scaleY));
-    platform1.setFillColor(sf::Color::Yellow);
-    platform1.setPosition(300.f * scaleX, 2800.f * scaleY);
-
-    sf::RectangleShape platform2(sf::Vector2f(400.f * scaleX, 30.f * scaleY));
-    platform2.setFillColor(sf::Color::Green);
-    platform2.setPosition(500.f * scaleX, 2600.f * scaleY);
-
-    std::vector<sf::RectangleShape> platforms = { ground_platform, platform1, platform2 };
-
     Upgrades::initializeUpgrades();
     std::unordered_map<std::string, Upgrades>& upgrades = Upgrades::upgrade_map; // Map for upgrade objects
     std::unordered_map<std::string, TitleScreen>& texts = TitleScreen::texts_map;  // Map for text objects
     std::unordered_map<std::string, TitleScreen>& buttons = TitleScreen::buttons_map; // Map for button objects
+
+    LevelManager levelManager;
+    std::unordered_map<std::string, LevelManager::LevelData>& levels = LevelManager::levels;
+
+
 
     // Game loop
     while (window.isOpen())
@@ -98,16 +89,13 @@ int main()
             // Draw the background first to ensure it's behind other elements
             if (backgroundOn) {
                 // Stretch background to fit the entire window
-                backgroundSprite.setScale(
-                    window.getSize().x / static_cast<float>(backgroundTexture.getSize().x),
-                    window.getSize().y / static_cast<float>(backgroundTexture.getSize().y)
-                );
+                backgroundRect.setSize(sf::Vector2f(window.getSize().x, window.getSize().y));
 
                 // Set background to static position relative to window, not camera
-                backgroundSprite.setPosition(0, 0);  // Fix the background at the top-left corner of the window
+                backgroundRect.setPosition(0, 0);  // Fix the background at the top-left corner of the window
 
                 // Draw the background (fixed relative to window)
-                window.draw(backgroundSprite);
+                window.draw(backgroundRect);
             }
 
             // Now, draw the title screen elements (text and buttons)
@@ -126,41 +114,39 @@ int main()
         }
         else {
             // Game has started, update player and camera
-            player.update(platforms);
+            const LevelManager::LevelData& levelData = levels["level1"];
+
+            player.update(levels);
             camera.update(player);
-            player.handleCollisions(platforms);
+            player.handleCollisions(levels);
 
             for (auto& upgrade : upgrades) {
                 upgrade.second.applyUpgradeEffect(player);  // Check and apply the effect
             }
 
-            // Draw background if enabled
+            // Draw the background with the default view (not affected by the camera)
             if (backgroundOn) {
-                sf::Vector2f cameraPosition = camera.getCameraPosition();
+                // Temporarily reset the view to the default to draw a static background
+                window.setView(window.getDefaultView());
 
-                // Set the background position relative to the camera
-                backgroundSprite.setPosition(cameraPosition.x - window.getSize().x / 2,
-                    cameraPosition.y - window.getSize().y / 2);
-
-                // Scale the background to cover the entire window size
-                backgroundSprite.setScale(
-                    window.getSize().x / static_cast<float>(backgroundTexture.getSize().x),
-                    window.getSize().y / static_cast<float>(backgroundTexture.getSize().y)
-                );
+                // Set the background size to match the window and position it at (0,0)
+                backgroundRect.setSize(sf::Vector2f(window.getSize().x, window.getSize().y));
+                backgroundRect.setPosition(0, 0);
 
                 // Draw the background
-                window.draw(backgroundSprite);
+                window.draw(backgroundRect);
+
+                // Reset to camera view after drawing the background
+                window.setView(camera.getView());
             }
 
-            // Draw platforms (scaled)
-            for (const auto& platform : platforms) {
-                window.draw(platform);
-                sf::RectangleShape platformOutline(platform.getSize());
-                platformOutline.setPosition(platform.getPosition());
-                platformOutline.setFillColor(sf::Color::Transparent);
-                platformOutline.setOutlineColor(sf::Color::White);
-                platformOutline.setOutlineThickness(2.0f);
-                window.draw(platformOutline);
+            // Apply camera to window
+            camera.apply(window);
+
+            // Draw platforms
+            for (const auto& pair : levels) {
+                const LevelManager::LevelData& level = pair.second;
+                levelManager.drawLevel("level1", window);
             }
 
             // Draw upgrades
@@ -180,19 +166,28 @@ int main()
             window.draw(playerOutline);
 
             // Show "You Died" message when player dies
+            // Show "You Died" message when player dies
             if (player.isPlayerDead()) {
                 sf::Text deathMsg;
                 deathMsg.setFont(TitleScreen::getFont());
                 deathMsg.setString("You Died");
                 deathMsg.setCharacterSize(50);
                 deathMsg.setFillColor(sf::Color::Red);
-                deathMsg.setPosition(player.getPosition().x, player.getPosition().y);
+
+                // Get the center of the camera view
+                sf::Vector2f viewCenter = camera.getView().getCenter();
+
+                // Center the text on the camera's view
+                sf::FloatRect textRect = deathMsg.getLocalBounds();
+                deathMsg.setOrigin(textRect.left + textRect.width / 2.0f,
+                    textRect.top + textRect.height / 2.0f);
+                deathMsg.setPosition(viewCenter);
 
                 window.draw(deathMsg);
             }
 
-            // Apply camera to window
-            camera.apply(window);
+
+            
         }
 
         window.display();

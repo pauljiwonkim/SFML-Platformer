@@ -73,12 +73,12 @@ void Player::processEvents(sf::Keyboard::Key key, bool checkPressed) {
 
 //----------------------------- UPDATES ---------------------------------------Updates player state (movement, gravity, jumping)
 
-void Player::update(std::vector<sf::RectangleShape>& platforms) {
+void Player::update(const std::unordered_map<std::string, LevelManager::LevelData>& levelMap) {
 
     isGrounded = false;  // Assume player is not grounded initially
 
     sf::Vector2f movement(0.0f, 0.0f);
-    float speed = abilities["speed"]; 
+    float speed = abilities["speed"];
 
     // Horizontal movement (left and right)
     if (left && sprite.getPosition().x > 0) {  // Prevent movement past the left edge (x > 0)
@@ -102,7 +102,7 @@ void Player::update(std::vector<sf::RectangleShape>& platforms) {
 
     // Move the sprite based on calculated movement (horizontal + vertical)
     sprite.move(sf::Vector2f(xVelocity, yVelocity));
-    handleCollisions(platforms);
+    handleCollisions(levelMap);
 
     // Handle walking animation if the player is moving
     if (left || right) {
@@ -150,72 +150,82 @@ void Player::updateTexture() {
     sprite.setTexture(moveTexture);
     sprite.setTextureRect(sf::IntRect(frameX, 0, frameWidth, frameHeight));
 }
-
+                                    
 // General Collision Handler
-void Player::handleCollisions(const std::vector<sf::RectangleShape>& platforms) {
+void Player::handleCollisions(const std::unordered_map<std::string, LevelManager::LevelData>& levelMap) {
     bool isCollidingTop = false;
     bool isCollidingBottom = false;
     bool isCollidingLeft = false;
     bool isCollidingRight = false;
 
-    for (const auto& platform : platforms) {
-        sf::FloatRect platformBounds = platform.getGlobalBounds();
-        sf::FloatRect playerBounds = getBounds();
+    sf::FloatRect playerBounds = getBounds();
 
-        if (playerBounds.intersects(platformBounds)) {
-            // Handle wall cling first
-            if (isClinging) {
-                yVelocity = 0;  // Stop vertical movement while clinging
-                wallClingClock.restart();
-                std::cout << "Clinging to the wall!" << std::endl;
-            }
+    for (const auto& pair : levelMap) {
+        const LevelManager::LevelData& levelData = pair.second;  
 
-            // Vertical collisions (top and bottom)
-            if (previousPosition.y + playerBounds.height <= platformBounds.top) {
-                // Bottom collision: player landed on the platform
-                sprite.setPosition(sprite.getPosition().x, platformBounds.top - playerBounds.height);
-                yVelocity = 0;
-                isGrounded = true;
-                jumpCount = 0;  // Reset jump count when grounded
-                isCollidingBottom = true;
+        // Iterate through platforms in the current level
+        for (const auto& platformPair : levelData.shapeMap) {
+            const ShapeManager& platform = platformPair.second;
+
+            // Ensure you have the platform's global bounds
+            sf::FloatRect platformBounds;
+
+            // Get platform bounds based on shape type
+            if (platform.getShapeType() == ShapeManager::ShapeType::Circle) {
+                platformBounds = platform.circle.getGlobalBounds();
             }
-            else if (previousPosition.y >= platformBounds.top + platformBounds.height) {
-                // Top collision: player hitting the underside of a platform
-                sprite.setPosition(sprite.getPosition().x, platformBounds.top + platformBounds.height);
-                yVelocity = 0;
-                isCollidingTop = true;
+            else if (platform.getShapeType() == ShapeManager::ShapeType::Rectangle || platform.getShapeType() == ShapeManager::ShapeType::Trapezoid) {
+                platformBounds = platform.rectangle.getGlobalBounds();
+            }
+            else {
+                continue; // Skip unsupported shapes
             }
 
-            // Horizontal collisions (left and right)
-            if (previousPosition.x + playerBounds.width <= platformBounds.left) {
-                // Left collision: player hit the left side of the platform
-                sprite.setPosition(platformBounds.left - playerBounds.width, sprite.getPosition().y);
-                xVelocity = 0;
-                isCollidingLeft = true;
-            }
-            else if (previousPosition.x >= platformBounds.left + platformBounds.width) {
-                // Right collision: player hit the right side of the platform
-                sprite.setPosition(platformBounds.left + platformBounds.width, sprite.getPosition().y);
-                xVelocity = 0;
-                isCollidingRight = true;
+            // Check for intersection with the player
+            if (playerBounds.intersects(platformBounds)) {
+                // Handle wall cling first (if applicable)
+                if (isClinging) {
+                    yVelocity = 0;  // Stop vertical movement while clinging
+                    wallClingClock.restart();
+                    std::cout << "Clinging to the wall!" << std::endl;
+                }
+
+                // Vertical collisions (top and bottom)
+                if (previousPosition.y + playerBounds.height <= platformBounds.top) {
+                    // Bottom collision: player landed on the platform
+                    sprite.setPosition(sprite.getPosition().x, platformBounds.top - playerBounds.height);
+                    yVelocity = 0;
+                    isGrounded = true;
+                    jumpCount = 0; // Reset jump count when grounded
+                    isCollidingBottom = true;
+                }
+                else if (previousPosition.y >= platformBounds.top + platformBounds.height) {
+                    // Top collision: player hitting the underside of a platform
+                    sprite.setPosition(sprite.getPosition().x, platformBounds.top + platformBounds.height);
+                    yVelocity = 0;
+                    isCollidingTop = true;
+                }
+
+                // Horizontal collisions (left and right)
+                if (previousPosition.x + playerBounds.width <= platformBounds.left) {
+                    // Left collision: player hit the left side of the platform
+                    sprite.setPosition(platformBounds.left - playerBounds.width, sprite.getPosition().y);
+                    xVelocity = 0;
+                    isCollidingLeft = true;
+                }
+                else if (previousPosition.x >= platformBounds.left + platformBounds.width) {
+                    // Right collision: player hit the right side of the platform
+                    sprite.setPosition(platformBounds.left + platformBounds.width, sprite.getPosition().y);
+                    xVelocity = 0;
+                    isCollidingRight = true;
+                }
             }
         }
     }
-
-    // After collisions, handle specific responses based on which side the player collided with. Future use
-    if (isCollidingTop) {
-        // Additional top collision logic (e.g., prevent falling through platforms)
-    }
-    if (isCollidingBottom) {
-        // Handle grounded logic (e.g., prevent falling through and reset jump count)
-    }
-    if (isCollidingLeft) {
-        // Handle left collision logic (e.g., stop horizontal movement to the left)
-    }
-    if (isCollidingRight) {
-        // Handle right collision logic (e.g., stop horizontal movement to the right)
-    }
 }
+
+
+
 
 // Jump Action
 void Player::jump() {
@@ -252,6 +262,10 @@ void Player::death() {
         deathClock.restart();
         jumpCount = 0;
     }
+    Upgrades::resetPlayerUpgrades(*this);   // `*this` dereferences the current object pointer (`this`) to obtain a reference to
+                                            // the instance itself. Useful for returning the current object as a reference in 
+                                            // method chaining, or passing the object by reference to other functions.
+
 }
 
 bool Player::isPlayerDead() const {

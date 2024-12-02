@@ -1,53 +1,56 @@
 #include "ShapeManager.h"
-
-shapes::shapes(float radius, int x, int y, Type type) //circle shape thingy
-	:type(Type::Circle)
-{
-	circle.setRadius(radius);
-	circle.setFillColor(sf::Color::Red);
-	circle.setPosition(x, y);
+ShapeManager::ShapeManager() // Default constructor
+    : shape(ShapeType::Rectangle), type(PlatformType::Normal) {
 }
 
-shapes::shapes(sf::Vector2f size, int x, int y, Type type) // rectangle shape thingy
-	:type(type)
+ShapeManager::ShapeManager(float radius, const sf::Vector2f& position, sf::Color color, ShapeType shape, PlatformType type) //circle shape thingy
+    :shape(ShapeType::Circle)
 {
-	if (type == Type::GoalRectangle) //used if/else because was having problems with compiling and this was the best way
-	{
-		rectangle.setSize(size);
-		rectangle.setFillColor(sf::Color::Green);
-		rectangle.setPosition(x, y);
-	}
-	else if (type == Type::PlatformRectangle)
-	{
-		rectangle.setSize(size);
-		rectangle.setFillColor(sf::Color::Yellow);
-		rectangle.setPosition(x, y);
+    circle.setRadius(radius);
+    circle.setFillColor(color);
+    circle.setPosition(position);
+}
 
-	}
-	else
-	{
-		std::cout << "problem with displaying rectangle shapes! \n";
-	}
+ShapeManager::ShapeManager(const sf::Vector2f& size, const sf::Vector2f& position, sf::Color color, ShapeType shape, PlatformType type) // rectangle shape thingy
+    :shape(shape)
+{
+    if (shape == ShapeType::Rectangle) //used if/else because was having problems with compiling and this was the best way
+    {
+        rectangle.setSize(size);
+        rectangle.setFillColor(color);
+        rectangle.setPosition(position);
+    }
+    else if (shape == ShapeType::Trapezoid)
+    {
+        rectangle.setSize(size);
+        rectangle.setFillColor(color);
+        rectangle.setPosition(position);
+
+    }
+    else
+    {
+        std::cout << "problem with displaying rectangle shapes! \n";
+    }
 
 }
 
 //drawing method
-void shapes::draw(sf::RenderWindow& window)
+void ShapeManager::draw(sf::RenderWindow& window) const
 {
-	switch (type)
-	{
-	case shapes::Type::Circle:
-		window.draw(circle);
-		break;
+    switch (shape)
+    {
+    case ShapeManager::ShapeType::Circle:
+        window.draw(circle);
+        break;
 
-	case shapes::Type::PlatformRectangle:
-		window.draw(rectangle);
-		break;
-	case shapes::Type::GoalRectangle:
-		window.draw(rectangle);
-		break;
-	default:
-		break;
+    case ShapeManager::ShapeType::Rectangle:
+        window.draw(rectangle);
+        break;
+    case ShapeManager::ShapeType::Trapezoid:
+        window.draw(rectangle);
+        break;
+    default:
+        break;
 
-	}
+    }
 }
