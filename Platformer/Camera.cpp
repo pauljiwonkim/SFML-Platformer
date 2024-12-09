@@ -1,6 +1,6 @@
 #include "Camera.h"
 
-Camera::Camera(float width, float height, const Player& player) {
+Camera::Camera(float width, float height, Player& player) {
     // Set the camera's size and initial center (based on the player's position)
     view.setSize(width, height);
     view.setCenter(player.getPosition().x, player.getPosition().y);
@@ -8,7 +8,7 @@ Camera::Camera(float width, float height, const Player& player) {
     boundsMax = { 10000.f, 10000.f }; // Default bounds (can be adjusted)
 }
 
-void Camera::update(const Player& player) {
+void Camera::update(Player& player) {
 
     if (player.isPlayerDead()) {
         return;

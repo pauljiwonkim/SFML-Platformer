@@ -7,10 +7,10 @@
 class Camera {
 public:
     // Constructor
-    Camera(float width, float height, const Player& player);
+    Camera(float width, float height, Player& player);
 
     // Update the camera's position based on the player
-    void update(const Player& player);
+    void update(Player& player);
 
     // Apply the camera's view to the window
     void apply(sf::RenderWindow& window);

@@ -7,36 +7,28 @@
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\LevelManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\LevelManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\LevelManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\Platformer\\Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\ShapeManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\ShapeManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\TitleScreen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\TitleScreen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -49,6 +41,14 @@
     {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Camera.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\TitleScreen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\TitleScreen.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|solutionrelative:Platformer\\Upgrades.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{664063AF-11F3-4837-8BD8-84E20EF9C36E}|Platformer\\Platformer.vcxproj|E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\TitleScreen.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -72,62 +72,61 @@
               "RelativeDocumentMoniker": "Platformer\\LevelManager.h",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\LevelManager.h",
               "RelativeToolTip": "Platformer\\LevelManager.h",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABgAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACgAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-12-01T22:12:03.895Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 1,
               "Title": "LevelManager.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\LevelManager.cpp",
               "RelativeDocumentMoniker": "Platformer\\LevelManager.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\LevelManager.cpp",
               "RelativeToolTip": "Platformer\\LevelManager.cpp",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-12-01T22:23:53.794Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "ShapeManager.h",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.h",
               "RelativeDocumentMoniker": "Platformer\\ShapeManager.h",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.h",
               "RelativeToolTip": "Platformer\\ShapeManager.h",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAAB8AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC0AAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-30T21:16:47.538Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 2,
               "Title": "ShapeManager.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.cpp",
               "RelativeDocumentMoniker": "Platformer\\ShapeManager.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\ShapeManager.cpp",
               "RelativeToolTip": "Platformer\\ShapeManager.cpp",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAADcAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAA6AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-24T21:32:55.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "TitleScreen.h",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\TitleScreen.h",
               "RelativeDocumentMoniker": "Platformer\\TitleScreen.h",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\TitleScreen.h",
               "RelativeToolTip": "Platformer\\TitleScreen.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACsAAABRAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-24T08:17:10.332Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T08:17:10.332Z"
             },
             {
               "$type": "Document",
@@ -143,33 +142,31 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 8,
               "Title": "Camera.h",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Camera.h",
               "RelativeDocumentMoniker": "Platformer\\Camera.h",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Camera.h",
               "RelativeToolTip": "Platformer\\Camera.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-24T09:50:20.409Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-24T09:50:20.409Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 9,
               "Title": "Camera.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Camera.cpp",
               "RelativeDocumentMoniker": "Platformer\\Camera.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Camera.cpp",
               "RelativeToolTip": "Platformer\\Camera.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAqAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-22T02:38:43.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T02:38:43.04Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 11,
               "Title": "Upgrades.h",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.h",
               "RelativeDocumentMoniker": "Platformer\\Upgrades.h",
@@ -177,57 +174,53 @@
               "RelativeToolTip": "Platformer\\Upgrades.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-20T23:23:31.249Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T23:23:31.249Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "Upgrades.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.cpp",
               "RelativeDocumentMoniker": "Platformer\\Upgrades.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Upgrades.cpp",
               "RelativeToolTip": "Platformer\\Upgrades.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAG4AAABxAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-20T23:23:31.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-05T21:21:23.973Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 5,
               "Title": "Player.h",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.h",
               "RelativeDocumentMoniker": "Platformer\\Player.h",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.h",
               "RelativeToolTip": "Platformer\\Player.h",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAABYAAAA8AAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-17T23:13:14.782Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:13:14.782Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Player.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.cpp",
               "RelativeDocumentMoniker": "Platformer\\Player.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\Player.cpp",
               "RelativeToolTip": "Platformer\\Player.cpp",
-              "ViewState": "AgIAAPUAAAAAAAAAAAAAAA4BAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-17T23:13:26.408Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-17T23:13:26.408Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "main.cpp",
               "DocumentMoniker": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\main.cpp",
               "RelativeDocumentMoniker": "Platformer\\main.cpp",
               "ToolTip": "E:\\Code Projects\\Personal Projects\\Platformer\\platformer\\Platformer\\main.cpp",
               "RelativeToolTip": "Platformer\\main.cpp",
-              "ViewState": "AgIAAIQAAAAAAAAAAAAhwJcAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAABQAAAAAAAAAAAAAABoAAAB8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-17T23:10:42.944Z",
               "EditorCaption": ""

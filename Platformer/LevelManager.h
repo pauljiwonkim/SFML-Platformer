@@ -37,7 +37,8 @@ public:
 
 
 private:
-
+    sf::Texture platformTexture;
+    sf::Texture damagingTexture;
 
 
     void createLevel1();

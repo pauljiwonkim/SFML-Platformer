@@ -23,8 +23,8 @@ public:
     ShapeManager(); // Default constructor
 
 
-    ShapeManager(float radius, const sf::Vector2f& position, sf::Color color, ShapeType shape, PlatformType type); //circle
-    ShapeManager(const sf::Vector2f& size, const sf::Vector2f& position, sf::Color color, ShapeType shape, PlatformType type); // rectangles 
+    ShapeManager(float radius, const sf::Vector2f& position, const sf::Texture& texture, ShapeType shape, PlatformType type); //circle
+    ShapeManager(const sf::Vector2f& size, const sf::Vector2f& position, const sf::Texture& texture, ShapeType shape, PlatformType type); // rectangles 
     void draw(sf::RenderWindow& window) const;
 
     // Getters
@@ -33,11 +33,14 @@ public:
 
     sf::CircleShape circle;
     sf::RectangleShape rectangle;
+    void setTexture(const sf::Texture& texture);
 private:
     ShapeType shape;
     PlatformType type;
+    sf::Texture platformtexture;
+    sf::Texture damageTexture;
 
 
 };
-								
+
 #endif //SHAPEMANAGER
