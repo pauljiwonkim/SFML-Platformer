@@ -123,7 +123,7 @@ void TitleScreen::InitializeTexts(sf::RenderWindow& window) {
     sf::Vector2f exitButtonPos(startX + playButtonWidth + buttonPadding, window.getSize().y - exitButtonShape.getSize().y - bottomPadding);  // Adjust Y position for Exit button
 
     // Create the title text (you can adjust size/color as needed)
-    TitleScreen title("Welcome to PENIS", 100, sf::Color::White, sf::Vector2f(window.getSize().x / 2.f, window.getSize().y / 4.f));
+    TitleScreen title("Simple Platformer", 100, sf::Color::White, sf::Vector2f(window.getSize().x / 2.f, window.getSize().y / 4.f));
 
     // Create the buttons
     TitleScreen playButton("Play", 60, sf::Color::White, playButtonShape, playButtonPos, sf::Vector2f(300.f, 100.f), sf::Color::Green, sf::Color::Blue, false);
