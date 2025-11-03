@@ -1,4 +1,4 @@
-# Ascendia (Platformer Game) - C++ & SFML
+# Platformer Game - C++ & SFML
 
 This is an amateur platformer game developed from scratch using C++ and SFML. The game features basic physics, including collision detection, 
 camera movement, and character upgrades that enhance jump strength and jump count.
